@@ -33,6 +33,8 @@ public class User {
     private String email;
     @Column(name="CERTIFICATE")
     private File certificate;
+    @Column(name="VALID_DATE")
+    private LocalDate validDate;
     @Column(name="SUBSCRIPTION")
     private String subscription;
     @Column(name="SUB_DATE")
