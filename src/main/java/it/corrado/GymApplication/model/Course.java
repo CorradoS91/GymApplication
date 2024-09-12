@@ -3,6 +3,8 @@ package it.corrado.GymApplication.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,4 +19,10 @@ public class Course {
     private Long id;
     @Column(name="NAME")
     private String name;
+    @Column(name="COURSE_START")
+    private LocalDate courseStart;
+    @Column(name="COURSE_END")
+    private LocalDate courseEnd;
+    @Column(name="STATUS")
+    private String status;
 }
