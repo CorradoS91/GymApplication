@@ -20,5 +20,7 @@ public class Trainer {
     private String surname;
     @Column(name="PHONE")
     private String phone;
+    @Column(name="EMAIL")
+    private String email;
 
 }

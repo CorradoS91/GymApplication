@@ -20,7 +20,7 @@ public class Room {
     @Column(name="CURRENT_USERS")
     private int currentUsers;
     @Column(name="STATE_USERS")
-    private boolean stateUsers;
+    private String stateUsers;
     @Column(name="NAME")
     private String name;
 
