@@ -10,6 +10,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class TrainerServiceImpl implements TrainerService {
@@ -45,22 +48,32 @@ public class TrainerServiceImpl implements TrainerService {
     }
 
     @Override
-    public TrainerDto getTrainerByName(String name) {
-        return null;
+    public List<TrainerDto> getTrainerByName(String name) {
+        List<Trainer> trainerList = trainerRepository.findAllByName(name);
+        return trainerMapper.listToDtoList(trainerList);
     }
 
     @Override
-    public TrainerDto getTrainerBySurname(String surname) {
-        return null;
+    public List<TrainerDto> getTrainerBySurname(String surname) {
+        List<Trainer> trainerList = trainerRepository.findAllBySurname(surname);
+        return trainerMapper.listToDtoList(trainerList);
     }
 
     @Override
     public TrainerDto getTrainerByPhone(String phone) {
-        return null;
+        Trainer trainer = trainerRepository.findByPhone(phone);
+        return trainerMapper.trainerToTrainerDto(trainer);
     }
 
     @Override
     public TrainerDto getTrainerByEmail(String email) {
-        return null;
+        Trainer trainer = trainerRepository.findByEmail(email);
+        return trainerMapper.trainerToTrainerDto(trainer);
+    }
+
+    @Override
+    public List<TrainerDto> getAllTrainers() {
+        List<Trainer> trainerList = trainerRepository.findAll();
+        return trainerMapper.listToDtoList(trainerList);
     }
 }

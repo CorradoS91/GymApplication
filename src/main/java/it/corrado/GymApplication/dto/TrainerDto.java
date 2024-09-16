@@ -1,7 +1,11 @@
 package it.corrado.GymApplication.dto;
 
+import it.corrado.GymApplication.model.Course;
 import jakarta.persistence.Column;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,4 +18,5 @@ public class TrainerDto {
     private String surname;
     private String phone;
     private String email;
+    private List<Course> courses = new ArrayList<>();
 }

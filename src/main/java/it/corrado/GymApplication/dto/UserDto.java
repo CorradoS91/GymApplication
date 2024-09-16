@@ -1,5 +1,6 @@
 package it.corrado.GymApplication.dto;
 
+import it.corrado.GymApplication.model.Course;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,6 +9,8 @@ import lombok.*;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
@@ -26,4 +29,5 @@ public class UserDto {
     private LocalDate validDate;
     private String subscription;
     private LocalDate sub_date;
+    private List<Course> courses = new ArrayList<>();
 }

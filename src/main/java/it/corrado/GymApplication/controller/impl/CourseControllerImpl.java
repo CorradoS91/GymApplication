@@ -16,7 +16,6 @@ public class CourseControllerImpl implements CourseController {
     public CourseDto getCourseById(Long id) {
         return courseService.getCourseById(id);
     }
-
     @Override
     public CourseDto createCourse(CourseDto courseDto) {
         return courseService.createCourse(courseDto);

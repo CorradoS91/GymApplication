@@ -15,4 +15,7 @@ public interface TrainerController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     TrainerDto updateTrainer(@PathVariable(name="id")Long id,@RequestBody TrainerDto trainerDto);
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteTrainer(@PathVariable(name="id")Long id);
 }

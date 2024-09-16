@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,10 +21,11 @@ public class Course {
     private Long id;
     @Column(name="NAME")
     private String name;
-    @Column(name="COURSE_START")
-    private LocalDate courseStart;
-    @Column(name="COURSE_END")
-    private LocalDate courseEnd;
-    @Column(name="STATUS")
-    private String status;
+    @ManyToMany(mappedBy = "courses")
+    private List<User> users = new ArrayList<>();
+    @ManyToMany(mappedBy = "courses")
+    private List<Trainer> trainers = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "ROOM_ID")
+    private Room room;
 }

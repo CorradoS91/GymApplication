@@ -1,7 +1,11 @@
 package it.corrado.GymApplication.dto;
 
+import it.corrado.GymApplication.model.Course;
 import jakarta.persistence.Column;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Getter
@@ -10,8 +14,6 @@ import lombok.*;
 @NoArgsConstructor
 public class RoomDto {
     private Long id;
-    private int capacity;
-    private int currentUsers;
-    private boolean stateUsers;
+    private List<Course> courses = new ArrayList<>();
     private String name;
 }

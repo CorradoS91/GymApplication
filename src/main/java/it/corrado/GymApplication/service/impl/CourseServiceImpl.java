@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -45,23 +47,11 @@ public class CourseServiceImpl implements CourseService {
         return courseMapper.courseToCourseDto(course);
     }
 
-    @Override
-    public CourseDto getCourseByName(String name) {
-        return null;
-    }
+
 
     @Override
-    public CourseDto getCourseByStart(LocalDate start) {
-        return null;
-    }
-
-    @Override
-    public CourseDto getCourseByEnd(LocalDate end) {
-        return null;
-    }
-
-    @Override
-    public CourseDto getCourseByState(String status) {
-        return null;
+    public List<CourseDto> getAllCourses() {
+        List<Course> courseList = courseRepository.findAll();
+        return courseMapper.listToDtoList(courseList);
     }
 }

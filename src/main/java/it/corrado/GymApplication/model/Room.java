@@ -3,6 +3,9 @@ package it.corrado.GymApplication.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,15 +18,10 @@ public class Room {
     @Column(name="ROOM_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="CAPACITY_USERS")
-    private int capacity;
-    @Column(name="CURRENT_USERS")
-    private int currentUsers;
-    @Column(name="STATE_USERS")
-    private String stateUsers;
     @Column(name="NAME")
     private String name;
-
+    @OneToMany(mappedBy = "room")
+    private List<Course> courses = new ArrayList<>();
 
 
 

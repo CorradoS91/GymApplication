@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -46,27 +48,39 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserBySurname(String surname) {
-        return null;
+    public List<UserDto> getUserBySurname(String surname) {
+        List<User> userList =userRepository.findAllBySurname(surname);
+        return userMapper.listToDtoList(userList);
     }
 
     @Override
-    public UserDto getUserByName(String name) {
-        return null;
+    public List<UserDto> getUserByName(String name) {
+        List<User> userList =userRepository.findAllByName(name);
+        return userMapper.listToDtoList(userList);
     }
 
     @Override
     public UserDto getUserByCode(String code) {
-        return null;
+        User user = userRepository.findByCode(code);
+        return userMapper.userToUserDto(user);
     }
 
     @Override
     public UserDto getUserByPhone(String phone) {
-        return null;
+        User user = userRepository.findByPhone(phone);
+        return userMapper.userToUserDto(user);
     }
 
     @Override
     public UserDto getUserByEmail(String email) {
-        return null;
+        User user = userRepository.findByEmail(email);
+        return userMapper.userToUserDto(user);
+    }
+
+
+    @Override
+    public List<UserDto> getAllUsers() {
+        List<User> userList = userRepository.findAll();
+        return userMapper.listToDtoList(userList);
     }
 }

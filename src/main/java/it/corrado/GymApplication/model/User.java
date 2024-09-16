@@ -6,6 +6,8 @@ import org.hibernate.validator.constraints.UniqueElements;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -39,5 +41,12 @@ public class User {
     private String subscription;
     @Column(name="SUB_DATE")
     private LocalDate sub_date;
+    @ManyToMany
+    @JoinTable(
+            name = "USER_COURSE",
+            joinColumns = @JoinColumn(name = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "COURSE_ID")
+    )
+    private List<Course> courses = new ArrayList<>();
 
 }

@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @AllArgsConstructor
@@ -31,24 +32,11 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public RoomDto getRoomByName(String name) {
-        return null;
+    public List<RoomDto> getRoomByName(String name) {
+        List<Room> roomList = roomRepository.findAllByName(name);
+        return roomMapper.listToDtoList(roomList);
     }
 
-    @Override
-    public RoomDto getCurrentUsers(RoomDto roomDto) {
-        return null;
-    }
-
-    @Override
-    public RoomDto getRoomCapacity(RoomDto roomDto) {
-        return null;
-    }
-
-    @Override
-    public RoomDto getRoomStateUsers(RoomDto roomDto) {
-        return null;
-    }
 
     @Override
     public RoomDto updateRoom(RoomDto roomDto, Long id) {
@@ -60,7 +48,8 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<RoomDto> getAllRooms() {
-        return List.of();
+        List<Room> roomList = roomRepository.findAll();
+        return roomMapper.listToDtoList(roomList);
     }
 
     @Override

@@ -27,4 +27,9 @@ public class TrainerControllerImpl implements TrainerController {
     public TrainerDto updateTrainer(Long id, TrainerDto trainerDto) {
         return trainerService.updateTrainer(trainerDto,id);
     }
+
+    @Override
+    public void deleteTrainer(Long id) {
+        trainerService.deleteTrainer(id);
+    }
 }
