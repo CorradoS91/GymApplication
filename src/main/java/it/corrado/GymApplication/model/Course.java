@@ -1,6 +1,8 @@
 package it.corrado.GymApplication.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -19,8 +21,14 @@ public class Course {
     @Column(name="COURSE_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
+    @NotNull
     @Column(name="NAME")
     private String name;
+    @NotBlank
+    @NotNull
+    @Column(name="CAPACITY")
+    private int capacity;
     @ManyToMany(mappedBy = "courses")
     private List<User> users = new ArrayList<>();
     @ManyToMany(mappedBy = "courses")

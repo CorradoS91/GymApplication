@@ -12,4 +12,5 @@ public interface CourseService {
     CourseDto updateCourse(Long id,CourseDto courseDto);
     CourseDto getCourseById(Long id);
     List<CourseDto> getAllCourses();
+    List<CourseDto> getAllByCapacity(int capacity);
 }

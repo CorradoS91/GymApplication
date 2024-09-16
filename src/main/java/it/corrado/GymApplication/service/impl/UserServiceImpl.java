@@ -1,6 +1,7 @@
 package it.corrado.GymApplication.service.impl;
 
 import it.corrado.GymApplication.dto.UserDto;
+import it.corrado.GymApplication.exception.IdNotFoundException;
 import it.corrado.GymApplication.mapper.UserMapper;
 import it.corrado.GymApplication.model.User;
 import it.corrado.GymApplication.repository.UserRepository;
@@ -29,13 +30,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long id) {
-        User user = userRepository.findById(id).orElseThrow();
+        User user = userRepository.findById(id).orElseThrow(()-> new IdNotFoundException(id));
         userRepository.delete(user);
     }
 
     @Override
     public UserDto updateUser(UserDto userDto, Long id) {
-        User user = userRepository.findById(id).orElseThrow();
+        User user = userRepository.findById(id).orElseThrow(()-> new IdNotFoundException(id));
         userMapper.updateUser(userDto,user);
         userRepository.save(user);
         return userMapper.userToUserDto(user);
@@ -43,7 +44,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUserById(Long id) {
-        User user = userRepository.findById(id).orElseThrow();
+        User user = userRepository.findById(id).orElseThrow(()-> new IdNotFoundException(id));
         return userMapper.userToUserDto(user);
     }
 

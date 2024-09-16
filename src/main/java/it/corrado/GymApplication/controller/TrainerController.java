@@ -1,6 +1,7 @@
 package it.corrado.GymApplication.controller;
 
 import it.corrado.GymApplication.dto.TrainerDto;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,10 @@ public interface TrainerController {
     TrainerDto getTrainerById(@PathVariable(name="id")Long id);
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    TrainerDto createTrainer(@RequestBody TrainerDto trainerDto);
+    TrainerDto createTrainer(@Valid @RequestBody TrainerDto trainerDto);
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    TrainerDto updateTrainer(@PathVariable(name="id")Long id,@RequestBody TrainerDto trainerDto);
+    TrainerDto updateTrainer(@PathVariable(name="id")Long id,@Valid @RequestBody TrainerDto trainerDto);
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteTrainer(@PathVariable(name="id")Long id);

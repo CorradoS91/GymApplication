@@ -22,4 +22,9 @@ public class CoursesControllerImpl implements CoursesController {
     public List<CourseDto> getAllCourses() {
         return courseService.getAllCourses();
     }
+
+    @Override
+    public List<CourseDto> getAllByCapacity(int capacity) {
+        return courseService.getAllByCapacity(capacity);
+    }
 }

@@ -11,4 +11,5 @@ import java.util.List;
 @Repository
 public interface CourseRepository extends JpaRepository<Course,Long> {
     List<Course> findAllByName(String name);
+    List<Course> findAllByCapacity(int capacity);
 }

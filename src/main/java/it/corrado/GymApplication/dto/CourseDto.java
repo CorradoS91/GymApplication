@@ -21,6 +21,7 @@ import java.util.List;
 public class CourseDto {
     private Long id;
     private String name;
+    private int capacity;
     private List<User> users = new ArrayList<>();
     private List<Trainer> trainers = new ArrayList<>();
     private Room room;

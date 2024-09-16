@@ -54,4 +54,10 @@ public class CourseServiceImpl implements CourseService {
         List<Course> courseList = courseRepository.findAll();
         return courseMapper.listToDtoList(courseList);
     }
+
+    @Override
+    public List<CourseDto> getAllByCapacity(int capacity) {
+        List<Course> courseList = courseRepository.findAllByCapacity(capacity);
+        return courseMapper.listToDtoList(courseList);
+    }
 }
