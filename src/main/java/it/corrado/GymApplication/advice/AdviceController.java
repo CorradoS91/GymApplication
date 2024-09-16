@@ -3,6 +3,7 @@ package it.corrado.GymApplication.advice;
 import it.corrado.GymApplication.error.GymApiError;
 import it.corrado.GymApplication.exception.IdNotFoundException;
 import it.corrado.GymApplication.exception.NameNotFoundException;
+import it.corrado.GymApplication.exception.SurnameNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

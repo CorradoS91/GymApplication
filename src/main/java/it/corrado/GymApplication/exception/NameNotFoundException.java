@@ -1,6 +1,9 @@
 package it.corrado.GymApplication.exception;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 
 @AllArgsConstructor
 public class NameNotFoundException extends RuntimeException implements CustomException{
