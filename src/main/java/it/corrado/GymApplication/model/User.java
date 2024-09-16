@@ -34,7 +34,7 @@ public class User {
     private String surname;
     @NotBlank
     @NotNull
-    @Pattern(regexp = "^[A-Z]{6}\\d{8}[A-Z0-9]$",message = "Codice fiscale non valido, dev essere un codice fiscale italiano.")
+    @Pattern(regexp = "^[A-Z]{6}\\d{8}[A-Z0-9]$",message = "Code not valid")
     @Column(name="CODE",unique = true)
     private String code;
     @NotBlank

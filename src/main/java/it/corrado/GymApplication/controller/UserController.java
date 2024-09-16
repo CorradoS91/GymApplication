@@ -19,13 +19,13 @@ public interface UserController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteUser(@PathVariable(name="id")Long id);
-    @GetMapping("/{code}")
+    @GetMapping("/code{code}")
     @ResponseStatus(HttpStatus.FOUND)
     UserDto getUserByCode(String code);
-    @GetMapping("/{phone}")
+    @GetMapping("/phone{phone}")
     @ResponseStatus(HttpStatus.FOUND)
     UserDto getUserByPhone(String phone);
-    @GetMapping("/{email}")
+    @GetMapping("/email{email}")
     @ResponseStatus(HttpStatus.FOUND)
     UserDto getUserByEmail(String email);
 }

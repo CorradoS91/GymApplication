@@ -1,9 +1,7 @@
 package it.corrado.GymApplication.advice;
 
 import it.corrado.GymApplication.error.GymApiError;
-import it.corrado.GymApplication.exception.IdNotFoundException;
-import it.corrado.GymApplication.exception.NameNotFoundException;
-import it.corrado.GymApplication.exception.SurnameNotFoundException;
+import it.corrado.GymApplication.exception.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,7 +22,7 @@ public class AdviceController {
         error.setStatus(HttpStatus.NOT_FOUND.value());
         error.setPath(request.getRequestURL().toString());
         error.setTimestamp(Instant.now());
-        error.setMessage(exception.getMessage());
+        error.setMessage(exception.getErrorMessage());
         return error;
     }
     @ExceptionHandler(NameNotFoundException.class)
@@ -34,7 +32,7 @@ public class AdviceController {
         error.setStatus(HttpStatus.NOT_FOUND.value());
         error.setPath(request.getRequestURL().toString());
         error.setTimestamp(Instant.now());
-        error.setMessage(exception.getMessage());
+        error.setMessage(exception.getErrorMessage());
         return error;
     }
     @ExceptionHandler(SurnameNotFoundException.class)
@@ -44,7 +42,48 @@ public class AdviceController {
         error.setStatus(HttpStatus.NOT_FOUND.value());
         error.setPath(request.getRequestURL().toString());
         error.setTimestamp(Instant.now());
-        error.setMessage(exception.getMessage());
+        error.setMessage(exception.getErrorMessage());
+        return error;
+    }
+    @ExceptionHandler(CodeAlreadyExistException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public GymApiError handleCodeAlreadyExistException(CodeAlreadyExistException exception, HttpServletRequest request){
+        GymApiError error = new GymApiError();
+        error.setStatus(HttpStatus.NOT_FOUND.value());
+        error.setPath(request.getRequestURL().toString());
+        error.setTimestamp(Instant.now());
+        error.setMessage(exception.getErrorMessage());
+        return error;
+    }
+    @ExceptionHandler(CodeNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public GymApiError handleCodeAlreadyExistException(CodeNotFoundException exception, HttpServletRequest request){
+        GymApiError error = new GymApiError();
+        error.setStatus(HttpStatus.NOT_FOUND.value());
+        error.setPath(request.getRequestURL().toString());
+        error.setTimestamp(Instant.now());
+        error.setMessage(exception.getErrorMessage());
+        return error;
+    }
+    @ExceptionHandler(EmailAlreadyExistException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public GymApiError handleCodeAlreadyExistException(EmailAlreadyExistException exception, HttpServletRequest request){
+        GymApiError error = new GymApiError();
+        error.setStatus(HttpStatus.NOT_FOUND.value());
+        error.setPath(request.getRequestURL().toString());
+        error.setTimestamp(Instant.now());
+        error.setMessage(exception.getErrorMessage());
+        return error;
+    }
+    @ExceptionHandler(EmailNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public GymApiError handleCodeAlreadyExistException(EmailNotFoundException exception, HttpServletRequest request){
+        GymApiError error = new GymApiError();
+        error.setStatus(HttpStatus.NOT_FOUND.value());
+        error.setPath(request.getRequestURL().toString());
+        error.setTimestamp(Instant.now());
+        error.setMessage(exception.getErrorMessage());
         return error;
     }
 }
+
